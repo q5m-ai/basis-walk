@@ -35,7 +35,7 @@ test('compact results, compressed views and projection explanation stay local',a
   await expect(verification).toContainText('100,000 steps checked in every dimension.');
   await expect(verification).toContainText('100,001 vertices and 5,000,050,000 vertex pairs');
   await expect(verification.locator('.verification-reports a')).toHaveCount(4);
-  for(const d of ['3','4','5','6'])await expect(verification.getByRole('link',{name:new RegExp(`^${d}D report`)})).toHaveAttribute('href',`https://github.com/ekalvi/basis-walk/blob/main/results/${d}d-100000.json`);
+  for(const d of ['3','4','5','6'])await expect(verification.getByRole('link',{name:new RegExp(`^${d}D report`)})).toHaveAttribute('href',`https://github.com/q5m-ai/basis-walk/blob/main/results/${d}d-100000.json`);
   await expect(page.locator('.hero-copy > .eyebrow')).toHaveText('Beyond Brown–Gerver–Ramsey');
   await expect(page.locator('.hero .lede')).toContainText('three, four and six dimensions');
   await expect(page.locator('.hero').getByRole('link',{name:'Read the paper on arXiv ↗',exact:true})).toHaveAttribute('href','https://arxiv.org/abs/2609.20366');
@@ -197,7 +197,7 @@ test('footer uses aligned local brand icons and wraps without overflow',async({p
   await expect(footer).not.toContainText('Software');
   await expect(page.locator('#sources')).toContainText('Stijn Cambie, Erik Kalviainen & Jeffrey Shallit');
   await expect(footer.getByRole('link',{name:'q5m',exact:true})).toHaveAttribute('href','https://www.q5m.ai');
-  await expect(footer.getByRole('link',{name:'GitHub',exact:true})).toHaveAttribute('href','https://github.com/ekalvi/basis-walk');
+  await expect(footer.getByRole('link',{name:'GitHub',exact:true})).toHaveAttribute('href','https://github.com/q5m-ai/basis-walk');
   await expect(footer.locator('.footer-icon[aria-hidden="true"]')).toHaveCount(2);
   await expect(footer).toHaveCSS('text-transform','uppercase');
   await expect(footer).toHaveCSS('border-top-width','1px');
